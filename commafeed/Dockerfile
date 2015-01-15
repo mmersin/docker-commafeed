@@ -4,10 +4,11 @@ MAINTAINER Mehmet Mersin <mmersin@gmail.com>
 
 RUN [ "mkdir", "/commafeed", "/config", "/data" ]
 COPY ./config.yml /config/
-COPY ./commafeed.jar /commafeed/
 VOLUME [ "/config", "/data" ]
 
-ENV JAVA_OPTS="-Xmx128m"
+RUN wget --quiet -O /commafeed/commafeed.jar https://github.com/mmersin/commafeed/releases/download/2.1.0/commafeed.jar
+
+ENV JAVA_OPTS -Xmx128m
 
 WORKDIR /data
 ENTRYPOINT java ${JAVA_OPTS} -jar /commafeed/commafeed.jar server /config/config.yml
