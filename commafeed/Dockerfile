@@ -1,4 +1,4 @@
-FROM java:openjdk-7-jre
+FROM java:openjdk-8-jre
 
 MAINTAINER Mehmet Mersin <mmersin@gmail.com>
 
@@ -7,8 +7,8 @@ COPY ./config.yml /config/
 COPY ./commafeed.jar /commafeed/
 VOLUME [ "/config", "/data" ]
 
-ENV MAX_MEMORY 128m
+ENV JAVA_OPTS="-Xmx128m"
 
 WORKDIR /data
-ENTRYPOINT java -Xmx${MAX_MEMORY} -jar /commafeed/commafeed.jar server /config/config.yml
+ENTRYPOINT java ${JAVA_OPTS} -jar /commafeed/commafeed.jar server /config/config.yml
 
