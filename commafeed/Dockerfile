@@ -1,13 +1,11 @@
 FROM java:openjdk-7-jre
 
-RUN mkdir /commafeed
-RUN mkdir /config
-RUN mkdir /data
+MAINTAINER Mehmet Mersin <mmersin@gmail.com>
+
+RUN [ "mkdir", "/commafeed", "/config", "/data" ]
 COPY ./config.yml /config/
 COPY ./commafeed.jar /commafeed/
-
-VOLUME /config
-VOLUME /data
+VOLUME [ "/config", "/data" ]
 
 ENV MAX_MEMORY 128m
 
