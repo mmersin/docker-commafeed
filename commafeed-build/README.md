@@ -9,3 +9,6 @@ example:
 docker run -it -v "<local_repo>:/commafeed" mrsn/commafeed-build
 
 Keep the container to avoid downloading maven repos again and just run container again to compile.
+
+https://registry.hub.docker.com/u/mrsn/commafeed-build/
+
