@@ -1,10 +1,8 @@
-FROM ubuntu:14.04
+FROM ubuntu:14.10
 
 MAINTAINER Mehmet Mersin <mmersin@gmail.com>
 
-RUN apt-get update && apt-get dist-upgrade -y
-RUN apt-get install -y git build-essential openjdk-7-jdk maven
-RUN apt-get remove -y --purge openjdk-6-jre openjdk-6-jre-headless openjdk-6-jre-lib
+RUN apt-get update && apt-get install -y git g++ build-essential openjdk-8-jdk maven
 
 RUN mkdir /commafeed
 VOLUME /commafeed
