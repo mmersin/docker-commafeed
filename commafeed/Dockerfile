@@ -6,7 +6,7 @@ RUN [ "mkdir", "/commafeed", "/config", "/data" ]
 COPY ./config.yml /config/
 VOLUME [ "/config", "/data" ]
 
-RUN wget --quiet -O /commafeed/commafeed.jar https://github.com/mmersin/commafeed/releases/download/2.1.0/commafeed.jar
+ADD https://github.com/mmersin/commafeed/releases/download/2.1.0/commafeed.jar /commafeed/
 
 ENV JAVA_OPTS -Xmx128m
 
