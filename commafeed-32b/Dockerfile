@@ -9,10 +9,10 @@ RUN update-ca-certificates -f
 RUN [ "mkdir", "/commafeed", "/config", "/data" ]
 VOLUME [ "/config", "/data" ]
 
-ADD https://github.com/mmersin/commafeed/releases/download/2.1.0/commafeed.jar /commafeed/
-ADD https://github.com/mmersin/commafeed/raw/2.1.0/config.dev.yml /config/config.yml
+ADD https://github.com/Athou/commafeed/releases/download/2.2.0/commafeed.jar /commafeed/
+ADD https://raw.githubusercontent.com/Athou/commafeed/2.2.0/config.yml.example /config/config.yml
 
-ENV JAVA_OPTS -d32 -Xmx96m
+ENV JAVA_OPTS -d32
 
 WORKDIR /data
 ENTRYPOINT java ${JAVA_OPTS} -jar /commafeed/commafeed.jar server /config/config.yml
